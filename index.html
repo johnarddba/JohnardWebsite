@@ -143,24 +143,12 @@
         <div class="skills-grid">
             <!-- Remove web development skills and update with database-related skills -->
             <div class="skill-card">
-                <i class="fas fa-database"></i>
-                <h3>Oracle</h3>
-            </div>
-            <div class="skill-card">
                 <i class="fas fa-server"></i>
-                <h3>SQL Server</h3>
-            </div>
-            <div class="skill-card">
-                <i class="fas fa-database"></i>
-                <h3>PostgreSQL</h3>
+                <h3>MS SQL Server</h3>
             </div>
             <div class="skill-card">
                 <i class="fas fa-cloud"></i>
-                <h3>AWS RDS</h3>
-            </div>
-            <div class="skill-card">
-                <i class="fas fa-cloud-upload-alt"></i>
-                <h3>Azure SQL</h3>
+                <h3>AWS EC2</h3>
             </div>
             <div class="skill-card">
                 <i class="fas fa-shield-alt"></i>
@@ -190,10 +178,11 @@
         <h2>Contact Me</h2>
         <div class="contact-content">
             <form id="contact-form">
-                <input type="text" placeholder="Name" required>
-                <input type="email" placeholder="Email" required>
-                <textarea placeholder="Message" required></textarea>
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <textarea name="message" placeholder="Message" required></textarea>
                 <button type="submit">Send Message</button>
+                <div id="form-status"></div>
             </form>
             <div class="social-links">
                 <a href="https://github.com/johnarddba"><i class="fab fa-github"></i></a>
