@@ -283,3 +283,103 @@ footer {
         font-size: 2rem;
     }
 }
+
+/* Professional Experience Section */
+.experience {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+}
+
+.experience-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.experience-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin: 20px 0;
+    transition: transform 0.3s ease;
+}
+
+.experience-card:hover {
+    transform: translateY(-5px);
+}
+
+.company-logo {
+    font-size: 2.5em;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.experience-header {
+    margin-bottom: 25px;
+}
+
+.experience-header h3 {
+    color: #2c3e50;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.company {
+    font-size: 1.2em;
+    color: #34495e;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.duration {
+    color: #7f8c8d;
+    font-size: 0.95em;
+}
+
+.duration i {
+    margin-right: 8px;
+}
+
+.experience-body {
+    margin: 25px 0;
+}
+
+.experience-body ul {
+    list-style: none;
+    padding: 0;
+}
+
+.experience-body li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: flex-start;
+    line-height: 1.6;
+}
+
+.experience-body li i {
+    color: #27ae60;
+    margin-right: 12px;
+    margin-top: 5px;
+}
+
+.tech-stack {
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tech-badge {
+    background-color: #e9ecef;
+    color: #2c3e50;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+}
+
+.tech-badge:hover {
+    background-color: #2c3e50;
+    color: white;
+}
