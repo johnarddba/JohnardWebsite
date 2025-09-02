@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foglight for Databases – DBA User Guide</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; }
+    h1, h2, h3 { color: #2c3e50; }
+    ul { margin-left: 20px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background-color: #f4f4f4; }
+    .section { margin-bottom: 30px; }
+  </style>
+</head>
+<body>
+
+  <h1>Foglight for Databases – DBA User Guide</h1>
+
+  <div class="section">
+    <h2>1. Introduction</h2>
+    <p>Foglight is a performance monitoring and diagnostic tool designed to help Database Administrators (DBAs) 
+       proactively manage database environments. It provides visibility into performance, availability, and 
+       resource usage across multiple platforms (SQL Server, Oracle, MySQL, DB2, etc.).</p>
+    <p>This guide explains how DBAs can use Foglight in daily operations and highlights its benefits.</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Key Features for DBAs</h2>
+    <ul>
+      <li>Cross-platform support – SQL Server, Oracle, MySQL, Postgres, DB2, etc.</li>
+      <li>Real-time monitoring – CPU, memory, sessions, and I/O.</li>
+      <li>Historical data analysis – Trend reporting and baselines.</li>
+      <li>Alerting & notifications – Custom thresholds and alerts.</li>
+      <li>Root cause diagnostics – Identify bottlenecks faster.</li>
+      <li>Capacity planning – Forecast growth and plan upgrades.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>3. How to Use Foglight as a DBA</h2>
+    <h3>Step 1: Accessing Foglight Console</h3>
+    <p>Open the Foglight Web Console, log in with DBA credentials, and navigate to the Databases Dashboard.</p>
+
+    <h3>Step 2: Adding Database Instances</h3>
+    <p>Go to <b>Administration → Agents → Database Agents</b>, add database instances, and verify connection.</p>
+
+    <h3>Step 3: Monitoring Day-to-Day Operations</h3>
+    <ul>
+      <li><b>Health Overview Dashboard</b> – Check overall DB health and alerts.</li>
+      <li><b>Instance Dashboard</b> – Drill into CPU, memory, and sessions.</li>
+      <li><b>Alarms & Alerts</b> – Monitor blocking sessions, deadlocks, and disk usage.</li>
+    </ul>
+
+    <h3>Step 4: Troubleshooting</h3>
+    <p>Use Top SQL View, Wait Events, and Execution Plans to identify performance issues.</p>
+
+    <h3>Step 5: Capacity & Growth Planning</h3>
+    <p>Analyze historical trends to forecast growth and resource needs.</p>
+  </div>
+
+  <div class="section">
+    <h2>4. Benefits for Day-to-Day DBA Operations</h2>
+    <table>
+      <tr>
+        <th>Task</th>
+        <th>Challenge without Foglight</th>
+        <th>Benefit with Foglight</th>
+      </tr>
+      <tr>
+        <td>Performance Monitoring</td>
+        <td>Manual checks via T-SQL/DMVs.</td>
+        <td>Proactive alerts and real-time insights.</td>
+      </tr>
+      <tr>
+        <td>Query Tuning</td>
+        <td>Manual profiling required.</td>
+        <td>Top SQL report shows high-impact queries instantly.</td>
+      </tr>
+      <tr>
+        <td>Resource Management</td>
+        <td>Hard to track across servers.</td>
+        <td>Centralized dashboard.</td>
+      </tr>
+      <tr>
+        <td>Blocking/Deadlocks</td>
+        <td>Missed unless monitoring live.</td>
+        <td>Automated detection and drill-downs.</td>
+      </tr>
+      <tr>
+        <td>Capacity Planning</td>
+        <td>Risk of unexpected outages.</td>
+        <td>Predictive growth analysis.</td>
+      </tr>
+      <tr>
+        <td>Multi-DB Support</td>
+        <td>Switching between tools.</td>
+        <td>Single console view.</td>
+      </tr>
+      <tr>
+        <td>Incident Response</td>
+        <td>Manual log checks cause delays.</td>
+        <td>Immediate alerts and RCA.</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>5. Best Practices</h2>
+    <ul>
+      <li>Configure custom thresholds aligned with SLAs.</li>
+      <li>Schedule regular reports (uptime, performance trends).</li>
+      <li>Integrate with ticketing systems (ServiceNow, Jira, etc.).</li>
+      <li>Review baseline performance regularly.</li>
+      <li>Enable OS-level monitoring (CPU, RAM, disk).</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>6. Conclusion</h2>
+    <p>Foglight helps DBAs move from reactive firefighting to proactive database management. 
+       It simplifies monitoring, accelerates troubleshooting, and ensures performance, availability, 
+       and capacity remain under control, reducing downtime and improving user satisfaction.</p>
+  </div>
+
+</body>
+</html>
