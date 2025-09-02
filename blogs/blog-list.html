@@ -3,19 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <title>Blog - Johnard A. Hidalgo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+  <!-- Navigation -->
   <nav>
-    <a href="../index.html">← Back to Portfolio</a>
+    <div class="nav-content">
+      <div class="logo">
+        <a href="../index.html">My Portfolio</a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="../index.html#home">Home</a></li>
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#experience">Professional Experience</a></li>
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#skills">Skills</a></li>
+        <li><a href="blog-list.html" class="active">Blog</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </div>
   </nav>
-  <h1>Blog</h1>
-  <ul>
-    <li>
-      <a href="foglight.html">Foglight for Databases – DBA User Guide</a>
-      <p>A practical guide for DBAs using Foglight for monitoring and diagnostics.</p>
-    </li>
-    <!-- Add more blog posts here -->
-  </ul>
+
+  <section class="blog-list-section">
+    <h1>Blog</h1>
+    <div class="blog-list">
+      <div class="blog-card">
+        <h2>
+          <a href="foglight.html">Foglight for Databases – DBA User Guide</a>
+        </h2>
+        <p>A practical guide for DBAs using Foglight for monitoring and diagnostics.</p>
+      </div>
+      <!-- Add more blog cards here -->
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Johnard A. Hidalgo. All rights reserved.</p>
+  </footer>
 </body>
 </html>
