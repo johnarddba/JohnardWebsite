@@ -1,17 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AWS for Database Administrators – Study Roadmap</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AWS Study Guide for Database Administrators</title>
+  <meta name="description" content="A practical, week-by-week AWS study guide for Database Administrators covering RDS, Aurora, HA/DR, security, migrations, NoSQL, monitoring, automation, and cost optimization." />
+  <meta name="author" content="Your Name" />
+  <meta property="og:title" content="AWS Study Guide for Database Administrators" />
+  <meta property="og:description" content="Practical roadmap for DBAs to learn AWS: RDS, Aurora, HA/DR, migration, monitoring, security, and automation." />
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="/images/aws-dba-guide.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
   <style>
-    body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; }
-    h1, h2, h3 { color: #2c3e50; }
-    ul { margin-left: 20px; }
-    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
-    th { background-color: #f4f4f4; }
-    .section { margin-bottom: 30px; }
+    :root {
+      --bg: #0b1020;
+      --panel: #121835;
+      --text: #eaf0ff;
+      --muted: #b7c2e8;
+      --accent: #6ea8ff;
+      --accent-2: #87e7d6;
+      --border: #233057;
+    }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, sans-serif; line-height: 1.6; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    header {
+      padding: 64px 20px 28px;
+      background: radial-gradient(1200px 500px at 20% -20%, rgba(135,231,214,.25), transparent),
+                  radial-gradient(1000px 600px at 80% -10%, rgba(110,168,255,.18), transparent);
+      border-bottom: 1px solid var(--border);
+    }
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+    h1 { font-size: 2rem; margin: 0 0 12px; letter-spacing: .2px; }
+    .subtitle { color: var(--muted); margin: 0; }
+    nav.toc { background: var(--panel); border: 1px solid var(--border); border-radius: 16px; padding: 18px; margin: 26px 0 10px; }
+    nav.toc strong { display: block; margin-bottom: 8px; }
+    nav.toc ul { margin: 0; padding-left: 18px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 6px 24px; }
+    main { padding: 28px 0 60px; }
+    section { background: var(--panel); border: 1px solid var(--border); border-radius: 16px; padding: 22px; margin-bottom: 18px; }
+    h2 { margin-top: 0; font-size: 1.4rem; }
+    h3 { margin-top: 1.2rem; font-size: 1.1rem; }
+    .badge { display: inline-block; font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: rgba(110,168,255,.15); color: var(--accent); border: 1px solid rgba(110,168,255,.35); margin-left: 8px; vertical-align: 2px; }
+    ul { margin: .4rem 0 .8rem; }
+    .lab, .checkpoint { border-left: 3px solid var(--accent); padding-left: 12px; margin: .6rem 0; }
+    .checkpoint { border-left-color: var(--accent-2); }
+    footer { color: var(--muted); border-top: 1px solid var(--border); padding: 22px 0 60px; }
+    code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+    .muted { color: var(--muted); }
+    .kicker { text-transform: uppercase; letter-spacing: .12em; font-size: .75rem; color: var(--accent-2); }
   </style>
 </head>
 <body>
+  <header>
+    <div class="container">
+      <div class="kicker">Study Roadmap</div>
+      <h1>AWS Study Guide for Database Administrators</h1>
+      <p class="subtitle">A practical, week-by-week path for DBAs to master AWS: RDS, Aurora, HA/DR, security, migrations, NoSQL, monitoring, automation, and cost optimization.</p>
+      <nav class="toc" aria-label="Table of contents">
+        <strong>On this page</strong>
+        <ul>
+          <li><a href="#week-1">Week 1 · AWS Core Foundations</a></li>
+          <li><a href="#week-2">Week 2 · Amazon RDS Deep Dive</a></li>
+          <li><a href="#week-3">Week 3 · Amazon Aurora</a></li>
+          <li><a href="#week-4">Week 4 · HA &amp; Disaster Recovery</a></li>
+          <li><a href="#week-5">Week 5 · Monitoring, Security &amp; Compliance</a></li>
+          <li><a href="#week-6">Week 6 · Migrations &amp; Hybrid</a></li>
+          <li><a href="#week-7">Week 7 · NoSQL &amp; Analytics</a></li>
+          <li><a href="#week-8">Week 8 · Automation &amp; Cost Optimization</a></li>
+          <li><a href="#capstone">Capstone Project</a></li>
+          <li><a href="#resources">Study Resources</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="intro">
+      <h2>Who this is for</h2>
+      <p>DBAs moving to AWS, or experienced database engineers who want a structured roadmap to deploy, secure, and operate databases in the cloud. Each week includes key topics, a hands-on lab, and a quick checkpoint to confirm understanding.</p>
+    </section>
+
+    <section id="week-1">
+      <h2>Week 1: AWS Core Foundations <span class="badge">Fundamentals</span></h2>
+      <h3>Key Topics</h3>
+      <ul>
+        <li>AWS Global Infrastructure: <em>Regions</em>, <em>Availability Zones</em>, and <em>Edge Locations</em>.</li>
+        <li>Identity &amp; Access Management (IAM): roles, policies, least-privilege for DBAs.</li>
+        <li>Networking for databases: VPC, subnets, security groups, NACLs.</li>
+      </ul>
+      <div class="lab"><strong>Hands-On Lab:</strong> Create a VPC with private/public subnets and an IAM role scoped for database access.</div>
+      <div class="checkpoint"><strong>Checkpoint:</strong> Explain the difference between <em>Multi-AZ</em> and <em>Multi-Region</em> architectures in your own words.</div>
+    </section>
+
+    <section id="week-2">
+      <h2>Week 2: Amazon RDS Deep Dive <span class="badge">Relational</span></h2>
+      <h3>Key Topics</h3>
+      <ul>
+        <li>Engines: SQL Server, MySQL, PostgreSQL, Oracle, MariaDB.</li>
+        <li>Backups &amp; Restore: automated backups, snapshots, point-in-time recovery (PITR).</li>
+        <li>Observability: Enhanced Monitoring, Performance Insights, CloudWatch metrics.</li>
+      </ul>
+      <div class="lab"><strong>Hands-On Lab:</strong> Deploy an <strong>RDS SQL Server</strong> Multi-AZ instance. Configure automated backups and perform a snapshot restore test.</div>
+      <div class="checkpoint"><strong>Checkpoint:</strong> Create a CloudWatch alarm for CPU &gt; 80% on the instance.</div>
+    </section>
+
+    <section id="week-3">
+      <h2>Week 3: Amazon Aurora <span class="badge">Cloud-Native</span></h2>
+      <h3>Key Topics</h3>
+      <ul>
+        <li>Architecture: decoupled storage, 6-way replication, fast failover.</li>
+        <li>Provisioned vs. Serverless v2 and autoscaling behavior.</li>
+        <li>Global Database and cross-region replication patterns.</li>
+      </ul>
+      <div class="lab"><strong>Hands-On Lab:</strong> Deploy an Aurora cluster with at least one reader. Simulate an instance failure to observe failover.</div>
+      <div class="checkpoint"><strong>Checkpoint:</strong> Compare Aurora vs. RDS SQL Server for availability, performance, and cost.</div>
+    </section>
+
+    <section id="week-4">
+      <h2>Week 4: High Availability &amp; Disaster Recovery <span class="badge">Resilience</span></h2>
+      <h3>Key Topics</h3>
+      <ul>
+        <li>Multi-AZ failover vs. Multi-Region DR.</li>
+        <li>Aurora Global Database for low-RPO/RTO scenarios.</li>
+        <li>SQL Server Always On Availability Groups (EC2 vs. RDS).</li>
+      </ul>
+      <div class="lab"><strong>Hands-On Lab:</strong> Build a SQL Server Always On AG on EC2 across two AZs. Perform a planned and unplanned failover test.</div>
+      <div class="checkpoint"><strong>Checkpoint:</strong> Draft a DR plan for a 2‑TB SQL Server database including RPO/RTO targets and cross-region strategy.</div>
+    </section>
+
+    <section id="week-5">
+      <h2>Week 5: Monitoring, Security &amp; Compliance <span class="badge">Ops</span></h2>
+      <h3>Key Topics</h3>
+      <ul>
+        <li>Monitoring stack: CloudWatch, CloudTrail, AWS Config.</li>
+        <li>Encryption: KMS at rest; SSL/TLS in transit.</li>
+        <li>IAM database authentication and access boundaries.</li>
+      </ul>
+      <div class="lab"><strong>Hands-On Lab:</strong> Enable RDS audit/slow logs; create a KMS-encrypted RDS instance; validate TLS connections.</div>
+      <div class="checkpoint"><strong>Checkpoint:</strong> Describe how CloudTrail supports DBA auditing and forensics.</div>
+    </section>
+
+    <section id="week-6">
+      <h2>Week 6: Migrations &amp; Hybrid Scenarios <span class="badge">Move &amp; Modernize</span></h2>
+      <h3>Key Topics</h3>
+      <ul>
+        <li>Database Migration Service (DMS): tasks, endpoints, replication instance sizing.</li>
+        <li>Schema Conversion Tool (SCT) for heterogeneous migrations.</li>
+        <li>Cutover planning: one-time vs. continuous replication and downtime windows.</li>
+      </ul>
+      <div class="lab"><strong>Hands-On Lab:</strong> Use DMS to migrate a sample on‑prem SQL Server to RDS. Try SCT to convert a SQL Server schema to Aurora PostgreSQL.</div>
+      <div class="checkpoint"><strong>Checkpoint:</strong> List three risk areas in heterogeneous migrations and how you would mitigate each.</div>
+    </section>
+
+    <section id="week-7">
+      <h2>Week 7: NoSQL &amp; Analytics <span class="badge">Broaden</span></h2>
+      <h3>Key Topics</h3>
+      <ul>
+        <li>DynamoDB: partition design, adaptive capacity, Global Tables.</li>
+        <li>Amazon Redshift: columnar storage, WLM/concurrency scaling, RA3 nodes.</li>
+        <li>Data lake tooling: AWS Glue, Amazon Athena, Lake Formation.</li>
+      </ul>
+      <div class="lab"><strong>Hands-On Lab:</strong> Create a DynamoDB table using on‑demand capacity; run Athena queries over S3 data cataloged by Glue.</div>
+      <div class="checkpoint"><strong>Checkpoint:</strong> Identify scenarios where DynamoDB is a better fit than RDS.</div>
+    </section>
+
+    <section id="week-8">
+      <h2>Week 8: Automation &amp; Cost Optimization <span class="badge">Scale</span></h2>
+      <h3>Key Topics</h3>
+      <ul>
+        <li>Infrastructure as Code: AWS CLI, CloudFormation, Terraform for DB stacks.</li>
+        <li>Cost levers: Reserved/Save Plans, Aurora Serverless, right‑sizing, storage choices.</li>
+        <li>Operational automation: snapshot policies, patch windows, blue/green deployments.</li>
+      </ul>
+      <div class="lab"><strong>Hands-On Lab:</strong> Automate RDS deployment with CloudFormation or Terraform; script snapshot &amp; restore flows via AWS CLI.</div>
+      <div class="checkpoint"><strong>Checkpoint:</strong> Propose cost optimizations for a 24×7 production RDS SQL Server workload.</div>
+    </section>
+
+    <section id="capstone">
+      <h2>Capstone Project</h2>
+      <p>Design and deploy a <strong>production-ready SQL Server on AWS</strong> that includes:</p>
+      <ul>
+        <li>Multi-AZ high availability and <em>cross-region</em> disaster recovery.</li>
+        <li>End-to-end monitoring with CloudWatch and proactive alarms.</li>
+        <li>Automated backups with regular restore validation.</li>
+        <li>Cost optimization using right-sized instances and commitments.</li>
+      </ul>
+    </section>
+
+    <section id="resources">
+      <h2>Study Resources</h2>
+      <ul>
+        <li><strong>AWS Documentation:</strong> RDS, Aurora, DynamoDB, DMS.</li>
+        <li><strong>Whitepapers:</strong> AWS Well-Architected Framework (Database Lens), Amazon RDS Best Practices.</li>
+        <li><strong>Hands-On Practice:</strong> AWS Free Tier, Qwiklabs, Skill Builder.</li>
+        <li><strong>Certification (Optional):</strong> AWS Certified Database – Specialty.</li>
+      </ul>
+      <p class="muted">Tip: Turn each weekly checkpoint into a short blog post to reinforce learning and build your portfolio.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p class="muted">© <span id="year"></span> Your Site Name • AWS Study Guide for Database Administrators</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
